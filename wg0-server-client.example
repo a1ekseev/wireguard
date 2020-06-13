@@ -1,0 +1,4 @@
+[Peer]
+PublicKey = :CLINET_PUBLIC_KEY:
+PresharedKey = :PRESHARED_KEY:
+AllowedIPs = :CLIENT_IP:/32
