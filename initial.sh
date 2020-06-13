@@ -11,5 +11,8 @@ sysctl -w net.ipv6.conf.lo.disable_ipv6=1 && \
 curl -Lo wireguard.zip https://github.com/a1ekseev/wireguard/archive/master.zip
 
 unzip -j wireguard.zip -d /etc/wireguard/
+rm -f wireguard.zip
+chmod +x /etc/wireguard/add_client.sh /etc/wireguard/install_server.sh /etc/wireguard/remove_client.sh
+umask 077 /etc/wireguard/add_client.sh /etc/wireguard/install_server.sh /etc/wireguard/remove_client.sh
 
 ./etc/wireguard/install_server.sh
