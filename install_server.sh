@@ -4,7 +4,8 @@ echo "Update, Upgrade and install wireguard"
 apt install wireguard -y && modprobe wireguard
 
 echo "Generate keys"
-wg genkey | tee /etc/wireguard/server_private_key | wg pubkey >/etc/wireguard/server_public_key
+wg genkey >/etc/wireguard/server_private_key
+wg pubkey >/etc/wireguard/server_public_key
 server_private_key=$(cat /etc/wireguard/server_private_key)
 
 echo "Create config wg0.conf"
