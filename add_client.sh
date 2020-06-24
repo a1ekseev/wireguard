@@ -12,8 +12,7 @@ else
 	if [ $count_clients -eq 0 ]; then
 		echo "Creating client config for: $client_name"
 		mkdir -p /etc/wireguard/clients/$client_name
-		wg genkey >/etc/wireguard/clients/$client_name/private-$client_name
-		wg pubkey >/etc/wireguard/clients/$client_name/public-$client_name
+		wg genkey | tee /etc/wireguard/clients/$client_name/private-$client_name | wg pubkey >/etc/wireguard/clients/$client_name/public-$client_name
 		wg genpsk >/etc/wireguard/clients/$client_name/preshared-$client_name
 
 		preshared_key=$(cat /etc/wireguard/clients/$client_name/preshared-$client_name)
